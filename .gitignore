@@ -1,0 +1,5 @@
+/node_modules/
+/_test/
+/package-lock.json
+/elm-stuff/
+/documentation.json
