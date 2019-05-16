@@ -9,7 +9,7 @@
 ## Usage
 
 ```elm
-import Json.Mapping exposing (object, withString, withInt)
+import Json.Mapping exposing (JsonMapping, object, withString, withInt)
 
 type alias Model =
     { name : String
