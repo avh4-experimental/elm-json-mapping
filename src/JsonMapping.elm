@@ -20,10 +20,6 @@ module JsonMapping exposing
 
 ## Using `ObjectMapping`s
 
-Normally you will just pass your `ObjectMapping` to [`DesktopApp.program`](DesktopApp#program),
-but the following functions are available if you want to manually make use of an `ObjectMapping`
-for other purposes.
-
 @docs encodeString, encodeValue, decoder
 
 
@@ -48,10 +44,6 @@ and decode a JSON object into `decodesTo`.
 This is similar to `JsonMapping`, but it allows a pipeline-style API for building up mappings
 (see [`object`](#object), [`with`](#with), [`static`](#static)).
 
-Notably this is used with [`DesktopApp.program`](DesktopApp#program) to specify how to save and load data.
-When used in that way, the `encodesFrom` type will be your program's model,
-and the `decodesTo` type will be your program's msg (which will be produced when data is loaded).
-
 Also of note: when `encodesFrom` and `decodesTo` are the same type it specifies a two-way mapping to and from JSON
 (and can then be turned into a [`JsonMapping`](#JsonMapping) with [`fromObjectMapping`](#fromObjectMapping)).
 
@@ -70,7 +62,7 @@ type JsonMapping a
 This, along with [`with`](#with), [`static`](#static) make up a pipeline-style API
 which can be used like this:
 
-    import DesktopApp.JsonMapping exposing (ObjectMapping, int, object, with)
+    import JsonMapping exposing (ObjectMapping, int, object, with)
 
     type alias MyData =
         { total : Int
@@ -152,7 +144,7 @@ bool =
 `Nothing` will map to `null`,
 and `Just a` will use the given mapping for `a`.
 
-    import DesktopApp.JsonMapping exposing (maybe, int, encode, decoder)
+    import JsonMapping exposing (maybe, int, encode, decoder)
     import Json.Decode exposing (decodeString)
 
     encode (maybe int) (Just 7)  --> "7"
@@ -195,7 +187,7 @@ map de en (JsonMapping enc dec) =
 
 This allows you to create `JsonMapping`s that can then be used as nested fields within other `ObjectMappings`.
 
-    import DesktopApp.JsonMapping exposing (fromObjectMapping, int, object, string, with)
+    import JsonMapping exposing (fromObjectMapping, int, object, string, with)
 
     type alias MyData =
         { name : String
@@ -253,7 +245,7 @@ static name value (JsonMapping enc _) (ObjectMapping fields dec) =
 
 `VariantDecoder`s and `VariantEncoder`s are created using the [`variant*`](#variant0) functions (see the example below).
 
-This function returns an `ObjectMapping` instead of a `JsonMapping` so that it is possible to have a custom type as the top-level of your persisted data when using [`DesktopApp.program`](DesktopApp#program).
+Note that this function returns an `ObjectMapping` instead of a `JsonMapping`.
 If you need a `JsonMapping`, you can use this with [`fromObjectMapping`](#fromObjectMapping)
 (as shown in the example).
 
@@ -265,7 +257,7 @@ As this example shows, creating a mapping for your custom type requires the foll
 
 Example:
 
-    import DesktopApp.JsonMapping exposing (JsonMapping, bool, customType, fromObjectMapping, int, string, variant0, variant1, variant2)
+    import JsonMapping exposing (JsonMapping, bool, customType, fromObjectMapping, int, string, variant0, variant1, variant2)
 
     type MyType
         = NotAuthorized
