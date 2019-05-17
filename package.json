@@ -2,7 +2,7 @@
   "name": "elm-json-mapping",
   "scripts": {
     "test": "elm-test && npm run-script check",
-    "check": "elm make --docs=documentation.json && elm-format --validate example src"
+    "check": "elm make --docs=documentation.json && elm-format --validate ."
   },
   "license": "MIT",
   "devDependencies": {
