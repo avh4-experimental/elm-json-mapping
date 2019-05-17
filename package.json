@@ -2,7 +2,8 @@
   "name": "elm-json-mapping",
   "scripts": {
     "test": "elm-test && npm run-script check",
-    "check": "elm make --docs=docs.json && elm-format --validate ."
+    "check": "elm make --docs=docs.json && elm-format --validate .",
+    "publish-docs-preview": "git stash save 'starting publish-docs-preview' && (git branch -D docs-preview || true) && git checkout -b docs-preview && elm make --docs=docs.json && git add -f docs.json && git commit -m 'update docs.json' && git push -f origin docs-preview && git checkout - && echo && echo 'Preview URL: https://elm-doc-preview.netlify.com/?repo=avh4-experimental/elm-json-mapping&version=docs-preview'"
   },
   "license": "MIT",
   "devDependencies": {
