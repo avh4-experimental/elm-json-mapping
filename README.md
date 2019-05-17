@@ -9,7 +9,7 @@
 ## Usage
 
 ```elm
-import Json.Mapping exposing (JsonMapping, object, withString, withInt)
+import Json.Mapping exposing (JsonMapping, object, int, string, with)
 
 type alias Model =
     { name : String
@@ -17,10 +17,10 @@ type alias Model =
     }
     
     
-mapping : JsonMapping Model Msg
+mapping : JsonMapping Msg Model
 mapping =
     object Loaded
-        |> withString "name" .name
-        |> withInt "count" .count
+        |> with "name" .name string
+        |> with "count" .count int
 ```
 
