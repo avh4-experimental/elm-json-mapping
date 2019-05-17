@@ -2,11 +2,11 @@ module JsonMappingSpec exposing (all)
 
 import Expect
 import Json.Decode
-import JsonMapping exposing (JsonMapping, bool, int, list, maybe, object, static, string, tag0, tag1, tag2, union, with)
+import JsonMapping exposing (ObjectMapping, bool, int, list, maybe, object, static, string, tag0, tag1, tag2, union, with)
 import Test exposing (..)
 
 
-check : String -> JsonMapping a a -> a -> String -> Test
+check : String -> ObjectMapping a a -> a -> String -> Test
 check name mapping elmValue jsonString =
     describe name
         [ test "encodes" <|
