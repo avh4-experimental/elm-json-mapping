@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/avh4/elm-json-mapping.svg?branch=master)](https://travis-ci.org/avh4/elm-json-mapping)
-[![Latest Elm package version](https://img.shields.io/elm-package/v/avh4/elm-json-mapping.svg?label=elm)][elm-package]
+[![Build Status](https://travis-ci.org/avh4-experimental/elm-json-mapping.svg?branch=master)](https://travis-ci.org/avh4-experimental/elm-json-mapping)
+[![Latest Elm package version](https://img.shields.io/elm-package/v/avh4-experimental/elm-json-mapping.svg?label=elm)][elm-package]
 
 
 [Elm]: https://elm-lang.org/
-[elm-package]: https://package.elm-lang.org/packages/avh4/elm-json-mapping/latest/
+[elm-package]: https://package.elm-lang.org/packages/avh4-experimental/elm-json-mapping/latest/
 
 
 ## Usage
